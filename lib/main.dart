@@ -15,70 +15,33 @@ class XylophoneApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
+        backgroundColor: Colors.black,
         body: SafeArea(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             mainAxisSize: MainAxisSize.max,
             children: [
-              Expanded(
-                child: FlatButton(
-                  color: Colors.blueGrey,
-                  onPressed: () {
-                    playSound(1);
-                  },
-                ),
-              ),
-              Expanded(
-                child: FlatButton(
-                  color: Colors.red,
-                  onPressed: () {
-                    playSound(2);
-                  },
-                ),
-              ),
-              Expanded(
-                child: FlatButton(
-                  color: Colors.blue,
-                  onPressed: () {
-                    playSound(3);
-                  },
-                ),
-              ),
-              Expanded(
-                child: FlatButton(
-                  color: Colors.teal,
-                  onPressed: () {
-                    playSound(4);
-                  },
-                ),
-              ),
-              Expanded(
-                child: FlatButton(
-                  color: Colors.green,
-                  onPressed: () {
-                    playSound(5);
-                  },
-                ),
-              ),
-              Expanded(
-                child: FlatButton(
-                  color: Colors.yellow,
-                  onPressed: () {
-                    playSound(6);
-                  },
-                ),
-              ),
-              Expanded(
-                child: FlatButton(
-                  color: Colors.amber,
-                  onPressed: () {
-                    playSound(7);
-                  },
-                ),
-              )
+              buildKey(1, Colors.blueGrey),
+              buildKey(2, Colors.red),
+              buildKey(3, Colors.blue),
+              buildKey(4, Colors.teal),
+              buildKey(5, Colors.green),
+              buildKey(6, Colors.yellow),
+              buildKey(7, Colors.white)
             ],
           ),
         ),
+      ),
+    );
+  }
+
+  Widget buildKey(int keyNumber, Color color) {
+    return Expanded(
+      child: FlatButton(
+        color: color,
+        onPressed: () {
+          playSound(keyNumber);
+        },
       ),
     );
   }
